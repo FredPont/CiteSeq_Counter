@@ -1,0 +1,11 @@
+{
+    "Cell_barcode_first_base": 1,
+    "Cell_barcode_last_base": 16,
+    "Umi_first_base": 17,
+    "Umi_last_base": 26,
+    "AB_barcode_first_base": 1,
+    "AB_barcode_last_base": 15,
+    "Tag_regex": "^[ATGC]{15}[TGC][A]{6,}"
+}
+
+

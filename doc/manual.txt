@@ -1,0 +1,36 @@
+Manual :
+The sofware was statically compiled for Linux and Windows 64 bits : there is nothing to install.
+
+1- unzip the software
+
+2- Edit the conf.json file to match the cell/AB barcodes and UMI positions.
+{
+    "Cell_barcode_first_base": 1,
+    "Cell_barcode_last_base": 16,
+    "Umi_first_base": 17,
+    "Umi_last_base": 26,
+    "AB_barcode_first_base": 1,
+    "AB_barcode_last_base": 15,
+    "Tag_regex": "^[ATGC]{15}[TGC][A]{6,}"
+}
+The TAG regex is a pattern matching the antibody barcode+UMI+polyA
+For more information about regular expressions, visit :
+http://perldoc.perl.org/perlre.html
+
+3- copy the uncompressed fastq R1 file in fastqR1 directory. Copy the uncompressed fastq R2 file in fastqR2 directory.
+4- Edit the tags.tsv file in the tags directory. This CSV table contains two columns separated by a tabulation : the AB tag and the AB name. for example :
+
+TCTCAGACCTCCGTA	CD14
+CTGGGCAATTACTCG	CD19
+TTCTGGGTCCCTAGA	CD20
+ACAGCGCCGTATTTA	CD279
+CTCATTGTAACTCCT	CD3
+TGTTCCCGCTCAACT	CD4
+CATTAACGGGATGCC	CD5
+TTCGCCGCATTGAGT	CD56
+GTCTCTTGGCTTAAA	CD69
+GCGCAACTTGATGAT	CD8
+
+5- copy your white list in the whiteList directory. The file must have only one column with the cells barcodes (see the test file for example). The white list is mandatory and can be obtained from the Seurat software.
+6- Run the software using the Linux or Windows binary.
+7- The result table is in the result directory
