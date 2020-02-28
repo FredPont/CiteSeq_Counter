@@ -26,7 +26,7 @@ import (
 	"os"
 	"regexp"
 
-	pb "gopkg.in/cheggaaa/pb.v1"
+	"github.com/schollz/progressbar"
 )
 
 // BCumi = cell bar code + UMI used as key dictionnary to store ID
@@ -84,9 +84,10 @@ func readR1R2(fasta1, fasta2 string, conf CONF, cellsSeq map[string]string, ABse
 
 	//var test []string
 	count := int(nbSeq)
-	bar := pb.StartNew(count) // progress bar
+	bar := progressbar.New(count) // Add a new progress bar
 	for {
-		bar.Increment() // progress bar
+		bar.Add(1) // show progress bar
+
 		re1, done1 := fqr1.Iter()
 		re2, done2 := fqr2.Iter()
 
